@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisi-Kisi UKK AIJ - TJKT Kelas XI</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0B0F1A;--bg2:#111827;--bg3:#1a2236;
+  --accent:#3B82F6;--accent2:#06B6D4;--accent3:#8B5CF6;
+  --green:#10B981;--orange:#F59E0B;--red:#EF4444;
+  --text:#F1F5F9;--text2:#94A3B8;--text3:#64748B;
+  --border:#1E2D45;--card:#131B2E;
+  --font:'Sora',sans-serif;--mono:'JetBrains Mono',monospace
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;line-height:1.6}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#0f1929 0%,#111827 50%,#0f1929 100%);border-bottom:1px solid var(--border);padding:0 1.5rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.logo-text{font-size:15px;font-weight:600;color:var(--text)}
+.logo-sub{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.nav{display:flex;gap:4px}
+.nav-btn{background:none;border:none;color:var(--text2);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px;font-family:var(--font);transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:var(--bg3);color:var(--text)}
+.badge-header{background:linear-gradient(135deg,var(--accent3),var(--accent));color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500;white-space:nowrap}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d1525 0%,#111827 40%,#0d1829 100%);padding:3.5rem 1.5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(139,92,246,.06) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:var(--accent);padding:5px 14px;border-radius:20px;font-size:12px;font-family:var(--mono);margin-bottom:1.5rem}
+.hero-title{font-size:clamp(22px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:1rem;background:linear-gradient(135deg,#F1F5F9,#94A3B8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:15px;color:var(--text2);max-width:600px;margin-bottom:2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.75rem}
+.meta-pill{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:12px;color:var(--text2)}
+.meta-pill span{color:var(--text);font-weight:500}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.dot.green{background:var(--green)}
+.dot.orange{background:var(--orange)}
+.dot.purple{background:var(--accent3)}
+
+/* STATS BAR */
+.stats-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 1.5rem}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}
+.stat-item{text-align:center;padding:.75rem}
+.stat-num{font-size:28px;font-weight:700;font-family:var(--mono);background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:11px;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+.section{margin-bottom:3rem}
+.section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.section-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.icon-blue{background:rgba(59,130,246,.15)}
+.icon-green{background:rgba(16,185,129,.15)}
+.icon-purple{background:rgba(139,92,246,.15)}
+.icon-orange{background:rgba(245,158,11,.15)}
+.section-title{font-size:18px;font-weight:600}
+.section-desc{font-size:13px;color:var(--text3);margin-top:2px}
+
+/* KOMPETENSI TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border)}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{background:var(--bg3);padding:.75rem 1rem;text-align:left;font-weight:600;color:var(--text2);font-size:12px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border);white-space:nowrap}
+.data-table td{padding:.75rem 1rem;border-bottom:1px solid rgba(30,45,69,.5);vertical-align:top;color:var(--text2);line-height:1.5}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:rgba(59,130,246,.03)}
+.num-cell{font-family:var(--mono);color:var(--text3);font-size:12px;text-align:center;width:50px}
+.topic-cell{color:var(--text);font-weight:500}
+.level-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;font-family:var(--mono)}
+.C1{background:rgba(16,185,129,.1);color:#34D399}
+.C2{background:rgba(59,130,246,.1);color:#60A5FA}
+.C3{background:rgba(139,92,246,.1);color:#A78BFA}
+.C4{background:rgba(245,158,11,.1);color:#FCD34D}
+.C5{background:rgba(239,68,68,.1);color:#FCA5A5}
+.C6{background:rgba(249,115,22,.1);color:#FDB574}
+.count-badge{background:var(--bg3);color:var(--text2);padding:2px 8px;border-radius:4px;font-size:12px;font-family:var(--mono)}
+
+/* SOAL */
+.soal-grid{display:flex;flex-direction:column;gap:1rem}
+.soal-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.soal-card:hover{border-color:rgba(59,130,246,.3)}
+.soal-head{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;cursor:pointer;user-select:none}
+.soal-num{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--accent3));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;font-family:var(--mono)}
+.soal-preview{flex:1;font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
+.soal-meta{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.soal-toggle{color:var(--text3);font-size:18px;transition:transform .3s;line-height:1}
+.soal-body{padding:0 1.25rem 1.25rem;border-top:1px solid var(--border);margin-top:0;display:none}
+.soal-body.open{display:block}
+.soal-q{font-size:14px;color:var(--text);margin-top:1rem;margin-bottom:.75rem;line-height:1.7}
+.soal-hint{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:8px;padding:.75rem 1rem;font-size:12px;color:var(--accent2);font-family:var(--mono);margin-top:.75rem}
+.soal-hint strong{color:var(--accent);display:block;margin-bottom:4px}
+
+/* FILTERS */
+.filter-bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.filter-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:5px 14px;border-radius:20px;cursor:pointer;font-size:12px;font-family:var(--font);transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.filter-count{background:var(--bg2);border-radius:10px;padding:2px 6px;font-size:10px;margin-left:4px;font-family:var(--mono)}
+
+/* KKM TABLE */
+.kkm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.kkm-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.kkm-title{font-size:14px;font-weight:600;margin-bottom.75rem;color:var(--text);margin-bottom:.75rem}
+.kkm-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px solid rgba(30,45,69,.4);font-size:13px}
+.kkm-row:last-child{border-bottom:none}
+.kkm-key{color:var(--text2)}
+.kkm-val{font-family:var(--mono);font-weight:500;color:var(--text)}
+
+/* FOOTER */
+.footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem;margin-top:3rem;text-align:center;color:var(--text3);font-size:12px}
+.footer strong{color:var(--text2)}
+
+/* TABS */
+.tabs{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:3px;margin-bottom:2rem;overflow-x:auto}
+.tab{padding:8px 18px;border-radius:7px;cursor:pointer;font-size:13px;color:var(--text2);border:none;background:none;font-family:var(--font);white-space:nowrap;transition:all .2s}
+.tab.active{background:var(--bg3);color:var(--text);font-weight:500}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+@media(max-width:640px){
+  .header-inner{height:56px}.nav{display:none}
+  .hero{padding:2rem 1rem}.stats-inner{grid-template-columns:repeat(2,1fr)}
+  .main{padding:1.5rem 1rem}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">AIJ</div>
+      <div>
+        <div class="logo-text">Administrasi Infrastruktur Jaringan</div>
+        <div class="logo-sub">SMK TJKT — Kelas XI — Semester 2</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showTab('kisi')">Kisi-Kisi</button>
+      <button class="nav-btn" onclick="showTab('soal')">Soal Esai</button>
+      <button class="nav-btn" onclick="showTab('info')">Informasi</button>
+    </nav>
+    <div class="badge-header">Ujian Kenaikan Kelas 2025/2026</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚡ Dokumen Resmi Persiapan UKK</div>
+    <h1 class="hero-title">Kisi-Kisi Ujian Kenaikan Kelas<br>Administrasi Infrastruktur Jaringan</h1>
+    <p class="hero-sub">Dokumen lengkap kisi-kisi, kompetensi dasar, indikator soal, dan 30 soal esai latihan untuk persiapan Ujian Kenaikan Kelas (UKK) semester 2 tahun pelajaran 2025/2026.</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><div class="dot"></div>Mata Pelajaran: <span>Administrasi Infrastruktur Jaringan (AIJ)</span></div>
+      <div class="meta-pill"><div class="dot green"></div>Kelas: <span>XI TJKT</span></div>
+      <div class="meta-pill"><div class="dot orange"></div>Semester: <span>Genap (2)</span></div>
+      <div class="meta-pill"><div class="dot purple"></div>Tahun Pelajaran: <span>2025/2026</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Kompetensi Dasar</div></div>
+    <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">Indikator Soal</div></div>
+    <div class="stat-item"><div class="stat-num">30</div><div class="stat-label">Soal Esai</div></div>
+    <div class="stat-item"><div class="stat-num">C1–C4</div><div class="stat-label">Level Kognitif</div></div>
+    <div class="stat-item"><div class="stat-num">120</div><div class="stat-label">Menit Ujian</div></div>
+  </div>
+</div>
+
+<main class="main">
+  <div class="tabs">
+    <button class="tab active" id="tab-kisi" onclick="switchTab('kisi')">📋 Kisi-Kisi Ujian</button>
+    <button class="tab" id="tab-soal" onclick="switchTab('soal')">✏️ 30 Soal Esai</button>
+    <button class="tab" id="tab-info" onclick="switchTab('info')">ℹ️ Informasi Ujian</button>
+  </div>
+
+  <!-- TAB KISI-KISI -->
+  <div class="tab-panel active" id="panel-kisi">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-blue">📌</div>
+        <div>
+          <div class="section-title">Kisi-Kisi Soal Ujian Kenaikan Kelas</div>
+          <div class="section-desc">Kompetensi Dasar, Indikator, Level Kognitif, dan Bobot Soal</div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="num-cell">No</th>
+              <th>Kompetensi Dasar (KD)</th>
+              <th>Materi Pokok</th>
+              <th>Indikator Soal</th>
+              <th>Level Kognitif</th>
+              <th>Jml Soal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num-cell">1</td>
+              <td class="topic-cell">3.13 Mengevaluasi firewall jaringan</td>
+              <td>Firewall & Keamanan Jaringan</td>
+              <td>
+                1. Menjelaskan konsep dan fungsi firewall dalam jaringan komputer<br>
+                2. Menganalisis perbedaan jenis firewall (stateful vs stateless)<br>
+                3. Mengkonfigurasi rules firewall menggunakan iptables/UFW
+              </td>
+              <td>
+                <span class="level-badge C2">C2</span><br>
+                <span class="level-badge C4">C4</span><br>
+                <span class="level-badge C3">C3</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+            <tr>
+              <td class="num-cell">2</td>
+              <td class="topic-cell">3.14 Mengevaluasi kebutuhan alamat IP</td>
+              <td>Routing & Subnetting Lanjut</td>
+              <td>
+                4. Menghitung subnetting VLSM untuk kebutuhan jaringan<br>
+                5. Mengkonfigurasi static routing dan dynamic routing (OSPF/RIP)<br>
+                6. Memecahkan masalah konektivitas antar jaringan
+              </td>
+              <td>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C4">C4</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+            <tr>
+              <td class="num-cell">3</td>
+              <td class="topic-cell">3.15 Mengevaluasi layanan DNS dan DHCP</td>
+              <td>DNS Server & DHCP Server</td>
+              <td>
+                7. Menjelaskan proses resolusi nama domain melalui DNS<br>
+                8. Mengonfigurasi DNS Server (forward/reverse zone)<br>
+                9. Mengonfigurasi DHCP Server dengan scope dan lease time
+              </td>
+              <td>
+                <span class="level-badge C2">C2</span><br>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C3">C3</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+            <tr>
+              <td class="num-cell">4</td>
+              <td class="topic-cell">3.16 Mengevaluasi web server dan FTP server</td>
+              <td>Web Server & FTP Server</td>
+              <td>
+                10. Menginstalasi dan mengkonfigurasi web server Apache/Nginx<br>
+                11. Mengonfigurasi Virtual Host pada web server<br>
+                12. Mengkonfigurasi FTP server (vsftpd) dengan hak akses user
+              </td>
+              <td>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C3">C3</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+            <tr>
+              <td class="num-cell">5</td>
+              <td class="topic-cell">3.17 Mengevaluasi sistem keamanan jaringan</td>
+              <td>VPN, SSH & Keamanan</td>
+              <td>
+                13. Menjelaskan konsep VPN dan implementasinya dalam jaringan enterprise<br>
+                14. Mengkonfigurasi remote access menggunakan SSH<br>
+                15. Mengidentifikasi ancaman dan serangan jaringan beserta mitigasinya
+              </td>
+              <td>
+                <span class="level-badge C2">C2</span><br>
+                <span class="level-badge C3">C3</span><br>
+                <span class="level-badge C4">C4</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+            <tr>
+              <td class="num-cell">6</td>
+              <td class="topic-cell">3.18 Mengevaluasi manajemen bandwidth & QoS</td>
+              <td>QoS & Manajemen Jaringan</td>
+              <td>
+                16. Menjelaskan konsep QoS dan manajemen bandwidth<br>
+                17. Menganalisis penggunaan SNMP untuk monitoring jaringan<br>
+                18. Merancang topologi jaringan enterprise yang optimal
+              </td>
+              <td>
+                <span class="level-badge C2">C2</span><br>
+                <span class="level-badge C4">C4</span><br>
+                <span class="level-badge C4">C4</span>
+              </td>
+              <td><span class="count-badge">5</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-green">📊</div>
+        <div>
+          <div class="section-title">Sebaran Level Kognitif Soal</div>
+          <div class="section-desc">Berdasarkan Taksonomi Bloom yang direvisi</div>
+        </div>
+      </div>
+      <div class="kkm-grid">
+        <div class="kkm-card">
+          <div class="kkm-title">Distribusi Level Kognitif</div>
+          <div class="kkm-row"><span class="kkm-key"><span class="level-badge C2">C2</span> Memahami (Understanding)</span><span class="kkm-val">5 soal (17%)</span></div>
+          <div class="kkm-row"><span class="kkm-key"><span class="level-badge C3">C3</span> Mengaplikasikan (Applying)</span><span class="kkm-val">16 soal (53%)</span></div>
+          <div class="kkm-row"><span class="kkm-key"><span class="level-badge C4">C4</span> Menganalisis (Analyzing)</span><span class="kkm-val">9 soal (30%)</span></div>
+        </div>
+        <div class="kkm-card">
+          <div class="kkm-title">Ketentuan Penilaian</div>
+          <div class="kkm-row"><span class="kkm-key">Bobot tiap soal</span><span class="kkm-val">10 poin</span></div>
+          <div class="kkm-row"><span class="kkm-key">Total skor maksimal</span><span class="kkm-val">100</span></div>
+          <div class="kkm-row"><span class="kkm-key">KKM (Nilai minimal lulus)</span><span class="kkm-val">75</span></div>
+          <div class="kkm-row"><span class="kkm-key">Waktu pengerjaan</span><span class="kkm-val">120 menit</span></div>
+        </div>
+        <div class="kkm-card">
+          <div class="kkm-title">Komponen yang Diujikan</div>
+          <div class="kkm-row"><span class="kkm-key">Firewall & Keamanan</span><span class="kkm-val">5 soal</span></div>
+          <div class="kkm-row"><span class="kkm-key">Routing & Subnetting</span><span class="kkm-val">5 soal</span></div>
+          <div class="kkm-row"><span class="kkm-key">DNS & DHCP Server</span><span class="kkm-val">5 soal</span></div>
+          <div class="kkm-row"><span class="kkm-key">Web & FTP Server</span><span class="kkm-val">5 soal</span></div>
+          <div class="kkm-row"><span class="kkm-key">VPN, SSH & Keamanan</span><span class="kkm-val">5 soal</span></div>
+          <div class="kkm-row"><span class="kkm-key">QoS & Manajemen Jaringan</span><span class="kkm-val">5 soal</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB SOAL -->
+  <div class="tab-panel" id="panel-soal">
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-purple">✏️</div>
+        <div>
+          <div class="section-title">30 Soal Esai Latihan</div>
+          <div class="section-desc">Klik soal untuk melihat detail dan petunjuk pengerjaan</div>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterSoal('all',this)">Semua <span class="filter-count">30</span></button>
+        <button class="filter-btn" onclick="filterSoal('firewall',this)">Firewall <span class="filter-count">5</span></button>
+        <button class="filter-btn" onclick="filterSoal('routing',this)">Routing <span class="filter-count">5</span></button>
+        <button class="filter-btn" onclick="filterSoal('dns',this)">DNS & DHCP <span class="filter-count">5</span></button>
+        <button class="filter-btn" onclick="filterSoal('server',this)">Web & FTP <span class="filter-count">5</span></button>
+        <button class="filter-btn" onclick="filterSoal('vpn',this)">VPN & SSH <span class="filter-count">5</span></button>
+        <button class="filter-btn" onclick="filterSoal('qos',this)">QoS <span class="filter-count">5</span></button>
+      </div>
+
+      <div class="soal-grid" id="soalGrid"></div>
+    </div>
+  </div>
+
+  <!-- TAB INFO -->
+  <div class="tab-panel" id="panel-info">
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-orange">📄</div>
+        <div>
+          <div class="section-title">Informasi Umum Ujian Kenaikan Kelas</div>
+          <div class="section-desc">Petunjuk, tata tertib, dan teknis pelaksanaan ujian</div>
+        </div>
+      </div>
+      <div class="kkm-grid">
+        <div class="kkm-card">
+          <div class="kkm-title">📋 Identitas Ujian</div>
+          <div class="kkm-row"><span class="kkm-key">Mata Pelajaran</span><span class="kkm-val">AIJ</span></div>
+          <div class="kkm-row"><span class="kkm-key">Kelas</span><span class="kkm-val">XI TJKT</span></div>
+          <div class="kkm-row"><span class="kkm-key">Semester</span><span class="kkm-val">Genap / 2</span></div>
+          <div class="kkm-row"><span class="kkm-key">Bentuk Soal</span><span class="kkm-val">Esai Uraian</span></div>
+          <div class="kkm-row"><span class="kkm-key">Jumlah Soal</span><span class="kkm-val">10 soal pilihan</span></div>
+          <div class="kkm-row"><span class="kkm-key">Durasi</span><span class="kkm-val">120 menit</span></div>
+        </div>
+        <div class="kkm-card">
+          <div class="kkm-title">🎯 Petunjuk Pengerjaan</div>
+          <div class="kkm-row"><span class="kkm-key">Baca soal dengan teliti</span><span class="kkm-val">✓</span></div>
+          <div class="kkm-row"><span class="kkm-key">Jawab dengan bahasa sendiri</span><span class="kkm-val">✓</span></div>
+          <div class="kkm-row"><span class="kkm-key">Sertakan contoh/diagram jika perlu</span><span class="kkm-val">✓</span></div>
+          <div class="kkm-row"><span class="kkm-key">Gunakan istilah teknis yang tepat</span><span class="kkm-val">✓</span></div>
+          <div class="kkm-row"><span class="kkm-key">Kerjakan soal yang mudah dulu</span><span class="kkm-val">✓</span></div>
+        </div>
+        <div class="kkm-card">
+          <div class="kkm-title">📈 Rubrik Penilaian Esai</div>
+          <div class="kkm-row"><span class="kkm-key">Jawaban lengkap & tepat</span><span class="kkm-val">9–10</span></div>
+          <div class="kkm-row"><span class="kkm-key">Jawaban sebagian besar benar</span><span class="kkm-val">7–8</span></div>
+          <div class="kkm-row"><span class="kkm-key">Jawaban sebagian benar</span><span class="kkm-val">5–6</span></div>
+          <div class="kkm-row"><span class="kkm-key">Jawaban sedikit benar</span><span class="kkm-val">3–4</span></div>
+          <div class="kkm-row"><span class="kkm-key">Tidak menjawab / salah</span><span class="kkm-val">0–2</span></div>
+        </div>
+        <div class="kkm-card">
+          <div class="kkm-title">📚 Materi Referensi</div>
+          <div class="kkm-row"><span class="kkm-key">Buku Paket AIJ Kemendikbud</span><span class="kkm-val">—</span></div>
+          <div class="kkm-row"><span class="kkm-key">Modul Cisco Networking Academy</span><span class="kkm-val">—</span></div>
+          <div class="kkm-row"><span class="kkm-key">Ubuntu Server Documentation</span><span class="kkm-val">—</span></div>
+          <div class="kkm-row"><span class="kkm-key">MikroTik Wiki / RouterOS Docs</span><span class="kkm-val">—</span></div>
+          <div class="kkm-row"><span class="kkm-key">RFC 791, 793, 1035, 2131</span><span class="kkm-val">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <strong>Kisi-Kisi UKK — Administrasi Infrastruktur Jaringan</strong><br>
+  SMK TJKT Kelas XI Semester Genap 2025/2026 · Dokumen ini dibuat untuk keperluan persiapan ujian
+</footer>
+
+<script>
+const soalData = [
+  {num:1,kategori:'firewall',level:'C2',topik:'Firewall',
+   preview:'Jelaskan pengertian firewall dan mengapa penting dalam infrastruktur jaringan.',
+   soal:'Jelaskan secara lengkap pengertian firewall dalam konteks keamanan jaringan komputer. Sebutkan dan jelaskan minimal 3 fungsi utama firewall, serta berikan contoh skenario nyata di mana firewall sangat diperlukan!',
+   hint:'Poin jawaban: definisi firewall, fungsi (packet filtering, NAT, logging, dll), contoh topologi jaringan dengan firewall'},
+  {num:2,kategori:'firewall',level:'C4',topik:'Firewall',
+   preview:'Analisis perbedaan firewall stateful dan stateless beserta kelebihan dan kekurangannya.',
+   soal:'Analisislah perbedaan antara firewall stateful dan stateless. Jelaskan cara kerja masing-masing dan dalam situasi apa kamu akan memilih salah satunya. Berikan contoh penggunaan di lingkungan jaringan sekolah!',
+   hint:'Poin jawaban: cara kerja stateful (session tracking) vs stateless (rules-based only), kelebihan/kekurangan masing-masing'},
+  {num:3,kategori:'firewall',level:'C3',topik:'Firewall',
+   preview:'Tuliskan perintah iptables untuk memblokir akses ke port 22 dari IP luar.',
+   soal:'Sebuah server Linux memiliki layanan SSH pada port 22. Tuliskan dan jelaskan perintah iptables yang diperlukan untuk: (a) Memblokir semua akses SSH dari jaringan luar, (b) Mengizinkan akses SSH hanya dari subnet 192.168.1.0/24, (c) Menyimpan rules iptables agar permanen setelah reboot!',
+   hint:'Gunakan iptables -A INPUT -p tcp --dport 22 ..., iptables-save, iptables-persistent'},
+  {num:4,kategori:'firewall',level:'C3',topik:'Firewall',
+   preview:'Konfigurasi UFW di Ubuntu Server untuk keperluan web server.',
+   soal:'Kamu diminta mengamankan sebuah Ubuntu Server yang menjalankan web server dan database. Tuliskan langkah-langkah konfigurasi UFW (Uncomplicated Firewall) untuk: mengizinkan port 80, 443, memblokir semua port lain dari internet, namun mengizinkan akses database dari jaringan lokal saja!',
+   hint:'Langkah: ufw enable, ufw default deny incoming, ufw allow 80/tcp, ufw allow 443/tcp, ufw allow from 192.168.0.0/24 to any port 3306'},
+  {num:5,kategori:'firewall',level:'C4',topik:'Firewall',
+   preview:'Identifikasi dan analisis celah keamanan dari konfigurasi firewall yang diberikan.',
+   soal:'Perhatikan konfigurasi iptables berikut:\n-A INPUT -p tcp --dport 22 -j ACCEPT\n-A INPUT -p tcp --dport 80 -j ACCEPT\n-A INPUT -j ACCEPT\nIdentifikasi masalah keamanan pada konfigurasi tersebut, jelaskan risikonya, dan tuliskan konfigurasi yang diperbaiki!',
+   hint:'Masalah: rule "-j ACCEPT" tanpa kondisi membuka semua port. Perbaikan: ubah default policy ke DROP, tambahkan rule ESTABLISHED,RELATED'},
+  {num:6,kategori:'routing',level:'C3',topik:'Subnetting',
+   preview:'Hitung VLSM untuk sebuah perusahaan dengan beberapa divisi berbeda.',
+   soal:'Sebuah perusahaan memiliki alamat jaringan 192.168.10.0/24. Perusahaan tersebut membutuhkan subnet untuk: Divisi IT (50 host), Divisi Keuangan (25 host), Divisi Marketing (12 host), Server Farm (5 host). Hitung pembagian subnet menggunakan metode VLSM dan tentukan Network Address, Subnet Mask, Broadcast, dan range IP yang dapat digunakan untuk setiap divisi!',
+   hint:'Urutkan dari kebutuhan terbesar. IT: /26, Keuangan: /27, Marketing: /28, Server: /29'},
+  {num:7,kategori:'routing',level:'C3',topik:'Routing',
+   preview:'Konfigurasi static routing pada router MikroTik untuk menghubungkan dua jaringan.',
+   soal:'Terdapat dua jaringan: Jaringan A (192.168.1.0/24) dan Jaringan B (10.0.0.0/24) yang dihubungkan oleh dua router MikroTik. Router 1 terhubung ke Jaringan A dengan IP 192.168.1.1 dan ke link antar-router dengan IP 172.16.0.1. Router 2 terhubung ke Jaringan B dengan IP 10.0.0.1 dan ke link antar-router dengan IP 172.16.0.2. Tuliskan perintah static routing pada kedua router menggunakan CLI MikroTik!',
+   hint:'ip route add dst-address=10.0.0.0/24 gateway=172.16.0.2 (di Router 1), dan sebaliknya di Router 2'},
+  {num:8,kategori:'routing',level:'C3',topik:'Routing',
+   preview:'Konfigurasi OSPF dasar pada jaringan dengan 3 router.',
+   soal:'Jelaskan konsep OSPF (Open Shortest Path First) dan perbedaannya dengan RIP (Routing Information Protocol). Kemudian tuliskan konfigurasi OSPF dasar pada sebuah router Cisco/MikroTik untuk mengiklankan jaringan 192.168.1.0/24 dan 10.0.0.0/24 ke seluruh jaringan OSPF!',
+   hint:'OSPF: link-state, AD=110, tidak terbatas hop count. Konfigurasi: router ospf 1, network 192.168.1.0 0.0.0.255 area 0'},
+  {num:9,kategori:'routing',level:'C4',topik:'Routing',
+   preview:'Troubleshooting masalah routing yang menyebabkan koneksi antar jaringan gagal.',
+   soal:'Seorang teknisi melaporkan bahwa komputer di jaringan 192.168.1.0/24 tidak dapat berkomunikasi dengan server di jaringan 172.16.0.0/16, meskipun routing sudah dikonfigurasi. Sebutkan minimal 5 langkah troubleshooting yang akan kamu lakukan secara sistematis, perintah apa yang digunakan, dan kemungkinan penyebab masalah beserta solusinya!',
+   hint:'Langkah: ping loopback, ping gateway, trace route, cek routing table (ip route show / show ip route), cek ARP table'},
+  {num:10,kategori:'routing',level:'C4',topik:'Routing',
+   preview:'Analisis tabel routing dan tentukan jalur terbaik yang akan dipilih.',
+   soal:'Sebuah router memiliki tabel routing sebagai berikut: (1) 10.0.0.0/8 via 172.16.0.1, AD/Metric 110/20, (2) 10.0.0.0/24 via 172.16.0.2, AD/Metric 1/0, (3) 10.0.1.0/24 via 172.16.0.3, AD/Metric 90/30. Jika ada paket menuju 10.0.0.50 dan 10.0.1.100, jelaskan jalur mana yang akan dipilih router dan mengapa!',
+   hint:'Longest prefix match lebih diutamakan daripada AD. 10.0.0.50 → route /24 (lebih spesifik). Jelaskan konsep longest prefix match'},
+  {num:11,kategori:'dns',level:'C2',topik:'DNS',
+   preview:'Jelaskan proses resolusi nama domain dari browser hingga server.',
+   soal:'Ketika pengguna mengetik "www.smk-tjkt.sch.id" di browser, jelaskan secara rinci proses resolusi nama domain yang terjadi. Sebutkan semua komponen yang terlibat (DNS Cache, Recursive Resolver, Root Server, TLD Server, Authoritative Server) dan jelaskan peran masing-masing!',
+   hint:'Alur: Browser cache → OS cache → Recursive resolver → Root NS → TLD (.id) NS → Authoritative NS → IP returned'},
+  {num:12,kategori:'dns',level:'C3',topik:'DNS',
+   preview:'Konfigurasi DNS Server menggunakan BIND9 dengan forward dan reverse zone.',
+   soal:'Konfigurasi sebuah DNS Server menggunakan BIND9 di Ubuntu untuk domain "smkku.net" dengan IP server 192.168.1.10. Tuliskan: (a) Isi file /etc/bind/named.conf.local untuk mendefinisikan zone, (b) Isi file zone forward (db.smkku.net) dengan minimal record SOA, NS, A, dan CNAME, (c) Isi file zone reverse (db.192.168.1) untuk reverse lookup!',
+   hint:'Zone forward: SOA, NS, A records. Zone reverse: SOA, NS, PTR records. Ingat tanda titik di akhir FQDN!'},
+  {num:13,kategori:'dns',level:'C3',topik:'DHCP',
+   preview:'Konfigurasi DHCP Server di Linux dengan scope, lease time, dan opsi tambahan.',
+   soal:'Konfigurasi DHCP Server menggunakan ISC DHCP (isc-dhcp-server) di Ubuntu untuk jaringan 192.168.5.0/24. Tentukan: range IP 192.168.5.100 - 192.168.5.200, gateway 192.168.5.1, DNS server 8.8.8.8 dan 192.168.5.10, lease time 24 jam, dan IP statis untuk server dengan MAC address AA:BB:CC:DD:EE:FF mendapat IP 192.168.5.5. Tuliskan isi file /etc/dhcp/dhcpd.conf!',
+   hint:'subnet ... netmask ... { range ...; option routers ...; option domain-name-servers ...; default-lease-time 86400; }, host ... { hardware ethernet ...; fixed-address ...; }'},
+  {num:14,kategori:'dns',level:'C3',topik:'DNS',
+   preview:'Konfigurasi DNS dengan multiple record types (MX, TXT, SRV).',
+   soal:'Sebuah perusahaan membutuhkan DNS yang mendukung email server dan verifikasi domain. Jelaskan dan tuliskan konfigurasi DNS record untuk: (a) MX record untuk mail.perusahaan.com, (b) SPF record dalam TXT untuk mencegah spam, (c) CNAME untuk www dan mail yang mengarah ke server yang sama, (d) A record untuk ns1 dan ns2 sebagai name server!',
+   hint:'MX record butuh prioritas (misal 10). SPF: v=spf1 a mx ~all. CNAME tidak boleh untuk apex domain'},
+  {num:15,kategori:'dns',level:'C4',topik:'DHCP',
+   preview:'Analisis masalah saat client tidak mendapat IP dari DHCP Server.',
+   soal:'Seorang pengguna mengeluh komputernya mendapat IP 169.254.x.x padahal DHCP Server sudah dikonfigurasi. Jelaskan: (a) Apa arti IP 169.254.x.x dan mengapa itu bisa terjadi, (b) Sebutkan 5 kemungkinan penyebab DHCP gagal berfungsi, (c) Langkah troubleshooting yang sistematis menggunakan perintah Linux/Windows!',
+   hint:'169.254.x.x = APIPA (Automatic Private IP Addressing). Penyebab: service DHCP mati, interface salah, lease habis, firewall, VLAN mismatch'},
+  {num:16,kategori:'server',level:'C3',topik:'Web Server',
+   preview:'Instalasi dan konfigurasi Apache2 dengan Virtual Host untuk dua domain berbeda.',
+   soal:'Konfigurasi Apache2 di Ubuntu Server untuk melayani dua website berbeda: "sekolah.sch.id" (document root /var/www/sekolah) dan "perpus.sch.id" (document root /var/www/perpus). Tuliskan: (a) Langkah instalasi Apache2, (b) Isi file konfigurasi Virtual Host untuk masing-masing domain di /etc/apache2/sites-available/, (c) Perintah untuk mengaktifkan Virtual Host!',
+   hint:'a2ensite namafile.conf, a2dissite, systemctl reload apache2. Virtual Host: <VirtualHost *:80> ServerName ... DocumentRoot ...'},
+  {num:17,kategori:'server',level:'C3',topik:'Web Server',
+   preview:'Konfigurasi HTTPS dengan SSL/TLS menggunakan sertifikat self-signed.',
+   soal:'Sebuah web server Apache perlu dikonfigurasi menggunakan HTTPS. Jelaskan: (a) Perbedaan HTTP dan HTTPS, (b) Cara membuat sertifikat SSL self-signed menggunakan OpenSSL, (c) Konfigurasi Apache2 untuk menggunakan SSL (port 443), (d) Cara redirect HTTP ke HTTPS secara otomatis!',
+   hint:'openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ... -out ... Aktifkan mod_ssl, konfigurasi SSLCertificateFile dan SSLCertificateKeyFile'},
+  {num:18,kategori:'server',level:'C3',topik:'FTP Server',
+   preview:'Konfigurasi vsftpd dengan user isolation dan chroot jail.',
+   soal:'Konfigurasi FTP Server menggunakan vsftpd di Ubuntu untuk keperluan upload file website. Buat 2 user FTP: "webadmin" (akses ke /var/www/) dan "readonly" (hanya bisa download). Konfigurasikan chroot jail agar user tidak bisa keluar dari direktori home mereka. Tuliskan isi file /etc/vsftpd.conf yang relevan dan langkah pembuatan user!',
+   hint:'chroot_local_user=YES, write_enable=YES untuk webadmin, anon_upload_enable=NO, useradd -d /var/www/ webadmin'},
+  {num:19,kategori:'server',level:'C4',topik:'Web Server',
+   preview:'Analisis log Apache untuk menemukan serangan web.',
+   soal:'Kamu menemukan file access.log Apache dengan entri mencurigakan seperti: banyak request ke "/../../../etc/passwd", "?id=1 OR 1=1--", "/wp-admin/". Identifikasi: (a) Jenis-jenis serangan yang dicoba penyerang, (b) Cara membaca dan menganalisis log Apache, (c) Konfigurasi Apache atau modul keamanan (mod_security) untuk mencegah serangan tersebut!',
+   hint:'Path traversal attack, SQL injection, brute force WordPress. Gunakan fail2ban, mod_security, limit request rate'},
+  {num:20,kategori:'server',level:'C3',topik:'FTP Server',
+   preview:'Konfigurasi FTP pasif untuk melewati firewall dan NAT.',
+   soal:'Jelaskan perbedaan mode aktif (Active) dan pasif (Passive) pada protokol FTP. Mengapa mode pasif sering digunakan di balik firewall/NAT? Konfigurasikan vsftpd untuk mendukung mode pasif dengan range port 50000-51000. Bagaimana mengkonfigurasi firewall (iptables/UFW) agar range port pasif tersebut bisa diakses?',
+   hint:'Active FTP: server koneksi ke client port 20. Passive: client koneksi ke server random port. pasv_enable=YES, pasv_min_port=50000, pasv_max_port=51000'},
+  {num:21,kategori:'vpn',level:'C2',topik:'VPN',
+   preview:'Jelaskan konsep VPN dan perbedaan jenis VPN yang umum digunakan.',
+   soal:'Jelaskan konsep Virtual Private Network (VPN) secara komprehensif. Bandingkan dan jelaskan perbedaan: (a) Site-to-Site VPN vs Remote Access VPN, (b) OpenVPN vs IPSec vs WireGuard, (c) Protokol tunneling: L2TP, PPTP, SSL/TLS. Dalam konteks apa masing-masing jenis VPN lebih tepat digunakan?',
+   hint:'VPN = tunnel terenkripsi. Site-to-site: kantor ke kantor. Remote access: user ke kantor. OpenVPN: open-source, fleksibel. WireGuard: modern, cepat'},
+  {num:22,kategori:'vpn',level:'C3',topik:'SSH',
+   preview:'Konfigurasi SSH Server yang aman dengan key-based authentication.',
+   soal:'Konfigurasi SSH Server di Linux agar lebih aman dengan: (a) Menonaktifkan login root via SSH, (b) Mengubah port SSH dari 22 ke 2222, (c) Mengaktifkan autentikasi dengan SSH key (key-based auth) dan menonaktifkan password login, (d) Membatasi akses SSH hanya untuk user "admin". Tuliskan perubahan pada /etc/ssh/sshd_config dan cara membuat SSH key pair!',
+   hint:'PermitRootLogin no, Port 2222, PasswordAuthentication no, PubkeyAuthentication yes, AllowUsers admin. ssh-keygen -t rsa -b 4096'},
+  {num:23,kategori:'vpn',level:'C4',topik:'Keamanan',
+   preview:'Identifikasi dan analisis berbagai jenis serangan jaringan beserta mitigasinya.',
+   soal:'Jelaskan cara kerja dan dampak dari serangan berikut, serta langkah mitigasi yang tepat untuk masing-masing: (a) DoS/DDoS Attack, (b) Man-in-the-Middle (MITM) Attack, (c) ARP Spoofing/Poisoning, (d) DNS Poisoning/Spoofing, (e) Port Scanning. Sebutkan tool atau teknik yang digunakan penyerang dan bagaimana mendeteksinya!',
+   hint:'DoS: flood traffic, mitigasi rate-limiting. MITM: sniffing traffic, mitigasi enkripsi. ARP: tabel ARP palsu, mitigasi static ARP/DAI. DNS: cache poisoning, mitigasi DNSSEC'},
+  {num:24,kategori:'vpn',level:'C3',topik:'SSH',
+   preview:'Konfigurasi SSH tunneling untuk mengakses layanan internal secara aman.',
+   soal:'Jelaskan konsep SSH tunneling (port forwarding) dan bedakan antara: (a) Local Port Forwarding, (b) Remote Port Forwarding, (c) Dynamic Port Forwarding (SOCKS Proxy). Berikan contoh perintah SSH untuk: mengakses web server internal (192.168.1.100:80) melalui SSH jump host, dan mengakses database internal dari luar jaringan!',
+   hint:'Local: ssh -L localport:remotehost:remoteport user@sshserver. Remote: ssh -R. Dynamic: ssh -D port (SOCKS5 proxy)'},
+  {num:25,kategori:'vpn',level:'C4',topik:'Keamanan',
+   preview:'Rancang kebijakan keamanan jaringan (network security policy) untuk sekolah.',
+   soal:'Sebuah SMK memiliki jaringan dengan: Lab Komputer (50 PC), Ruang Guru (20 PC), Server Room (5 Server), dan Wifi Guest. Rancanglah kebijakan keamanan jaringan yang mencakup: (a) Segmentasi jaringan menggunakan VLAN, (b) Kebijakan akses antar VLAN, (c) Kebijakan penggunaan internet, (d) Prosedur backup dan recovery, (e) Monitoring dan logging!',
+   hint:'VLAN: Lab=10, Guru=20, Server=30, Guest=40. ACL antar VLAN. Content filtering untuk Lab. IDS/IPS di gateway'},
+  {num:26,kategori:'qos',level:'C2',topik:'QoS',
+   preview:'Jelaskan konsep Quality of Service dan parameter-parameter yang diukur.',
+   soal:'Jelaskan secara lengkap konsep Quality of Service (QoS) dalam jaringan komputer. Jelaskan parameter QoS berikut beserta dampaknya pada pengguna: (a) Bandwidth, (b) Latency/Delay, (c) Jitter, (d) Packet Loss, (e) Throughput. Berikan contoh nyata bagaimana QoS mempengaruhi kualitas video call dan gaming online!',
+   hint:'Bandwidth: kapasitas maksimal. Latency: waktu tempuh paket. Jitter: variasi delay. Packet loss: paket hilang. Video call butuh latency <150ms, jitter <30ms'},
+  {num:27,kategori:'qos',level:'C3',topik:'QoS',
+   preview:'Konfigurasi bandwidth management di MikroTik menggunakan Simple Queue.',
+   soal:'Sebuah SMK memiliki koneksi internet 100 Mbps yang digunakan 200 siswa. Konfigurasi bandwidth management di MikroTik menggunakan Simple Queue dan Queue Tree untuk: (a) Membatasi setiap client maksimal 1 Mbps download, 512 Kbps upload, (b) Memberikan prioritas lebih tinggi untuk layanan video conference (port 443, 4443), (c) Membatasi akses media sosial antara jam 07.00-17.00!',
+   hint:'Simple Queue: target=192.168.1.0/24 max-limit=1M/512k. Queue Tree dengan marking koneksi. Layer7 protocol untuk filter media sosial'},
+  {num:28,kategori:'qos',level:'C4',topik:'Monitoring',
+   preview:'Analisis data SNMP untuk mengidentifikasi bottleneck dalam jaringan.',
+   soal:'Jelaskan cara kerja protokol SNMP (Simple Network Management Protocol) versi 1, 2c, dan 3. Sebutkan komponen SNMP (Manager, Agent, MIB). Bagaimana menggunakan SNMP untuk: (a) Memonitor utilisasi CPU dan memori switch/router, (b) Memonitor bandwidth per interface, (c) Mengkonfigurasi SNMP trap untuk alert otomatis. Sebutkan tools monitoring yang menggunakan SNMP!',
+   hint:'SNMP v3 lebih aman (autentikasi+enkripsi). OID untuk CPU, interface bandwidth (ifInOctets, ifOutOctets). Tools: PRTG, Zabbix, Nagios, LibreNMS'},
+  {num:29,kategori:'qos',level:'C4',topik:'Monitoring',
+   preview:'Rancang sistem monitoring jaringan komprehensif untuk lingkungan enterprise.',
+   soal:'Kamu diminta merancang sistem monitoring jaringan untuk sebuah perusahaan dengan 5 cabang. Jelaskan: (a) Tool monitoring yang akan digunakan (Zabbix/Nagios/Grafana+Prometheus) dan alasannya, (b) Apa saja yang perlu dimonitor (uptime, bandwidth, CPU, disk, layanan), (c) Bagaimana konfigurasi alerting (email/Telegram), (d) Cara membuat dashboard yang informatif, (e) Prosedur response saat ada alert!',
+   hint:'Zabbix: enterprise, gratis, powerful. Monitor: ICMP ping (uptime), SNMP (bandwidth), agent (CPU/RAM/disk), port check (layanan). Alert: escalation policy'},
+  {num:30,kategori:'qos',level:'C4',topik:'Desain Jaringan',
+   preview:'Rancang topologi jaringan enterprise yang redundant, aman, dan skalabel.',
+   soal:'Sebuah perusahaan startup meminta kamu merancang infrastruktur jaringan untuk kantor pusat (100 user) dan 2 kantor cabang (masing-masing 30 user). Buat desain yang mencakup: (a) Topologi fisik dan logis lengkap dengan komponen yang dibutuhkan, (b) Pembagian VLAN dan IP addressing (gunakan VLSM), (c) Koneksi antar cabang (VPN/MPLS), (d) Redundansi (HSRP/VRRP, link aggregation), (e) Keamanan (firewall, IDS/IPS, DMZ), (f) Estimasi perangkat keras yang dibutuhkan!',
+   hint:'Core-Distribution-Access layer design. VLAN per departemen. HSRP untuk gateway redundancy. Site-to-site VPN IPSec untuk cabang. DMZ untuk server publik'},
+];
+
+function renderSoal(data){
+  const grid=document.getElementById('soalGrid');
+  grid.innerHTML='';
+  data.forEach(s=>{
+    const el=document.createElement('div');
+    el.className='soal-card';
+    el.dataset.kategori=s.kategori;
+    el.innerHTML=`
+      <div class="soal-head" onclick="toggleSoal(this)">
+        <div class="soal-num">${String(s.num).padStart(2,'0')}</div>
+        <div class="soal-preview">${s.preview}</div>
+        <div class="soal-meta">
+          <span class="level-badge ${s.level}">${s.level}</span>
+          <span class="soal-toggle">+</span>
+        </div>
+      </div>
+      <div class="soal-body">
+        <p class="soal-q">${s.soal.replace(/\n/g,'<br>')}</p>
+        <div class="soal-hint"><strong>💡 Petunjuk Jawaban:</strong>${s.hint}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+function toggleSoal(head){
+  const body=head.nextElementSibling;
+  const toggle=head.querySelector('.soal-toggle');
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  toggle.textContent=isOpen?'+':'−';
+  toggle.style.transform=isOpen?'rotate(0)':'rotate(0)';
+}
+
+function filterSoal(kat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards=document.querySelectorAll('.soal-card');
+  cards.forEach(c=>{
+    c.style.display=(kat==='all'||c.dataset.kategori===kat)?'block':'none';
+  });
+}
+
+function switchTab(name){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+renderSoal(soalData);
+</script>
+</body>
+</html>
